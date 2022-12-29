@@ -1,3 +1,5 @@
+// Excelを読み込む
+
 (function (window, document) {
     window.ExcelJs = {};
     ExcelJs.File = function (_file, _workbook) {
@@ -92,6 +94,8 @@
     html += '<h3>' + name + '</h3>';
     html += '<pre>' + content + '</pre>';
     elem.innerHTML = html;
+
+      console.log(content);
   }
   
   document.getElementById('import-excel').addEventListener('change', function (evt) {
@@ -103,3 +107,4 @@
       });
     }
   }, false);
+

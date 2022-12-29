@@ -7,26 +7,116 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title></title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="./css/sample.css">
+  
   </head>
   <body>
-    <form action="" method="get">
-      <input type="file" name="upload_file" id="import-excel" />
-      <h2>Result</h2>
-      <div id="result"></div>
-    </form>
+    <div class="tab-area">
+      <div class="tab active">
+        タブ１
+      </div>
+      <div class="tab">
+        タブ２
+      </div>
+      <div class="tab">
+        タブ３
+      </div>
+      <div class="tab">
+        タブ４
+      </div>
+      <div class="tab">
+        タブ５
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="content show">
+        <form action="" method="get">
+          <input type="file" name="upload_file" id="import-excel" />
+          <!-- <h2>Result</h2> -->
+          <div id="result"></div>
+        </form>
+
+        <button id="Save">保存</button>
+
+      </div>
+      <div class="content">
+        タブ２の中身です
+      </div>
+      <div class="content">
+        タブ３の中身です
+      </div>
+      <div class="content">
+        タブ４の中身です
+      </div>
+      <div class="content">
+        タブ５の中身です
+      </div>
+    </div>
+    
+  
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.11.1/xlsx.full.min.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/script_1.js"></script>
+    <!-- FireBase用 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/script_2.js"></script>
+
+<!--** 以下Firebase **-->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  import { getDatabase, ref, push, set, onChildAdded, remove, onChildRemoved }
+      from "https://cdnjs.cloudflare.com/ajax/libs/firebase/9.14.0/firebase-database.js";
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCbozVfg_k4EqKEs38-zF9zdEagcXvk-y4",
+    authDomain: "fir-demo-fd918.firebaseapp.com",
+    projectId: "fir-demo-fd918",
+    storageBucket: "fir-demo-fd918.appspot.com",
+    messagingSenderId: "72528433443",
+    appId: "1:72528433443:web:ac7b0280aecaa4973efc96"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app); // Realtime DB に接続
+  const dbRef = ref(db, "database"); // Realtime D内の database を使う
+
+  // クリックでFireBaseに保存
+  $("#Save").on("click", function () {
+    
+    const savedata = document.getElementById('result').innerHTML;
+    
+    const newbookRef = push(dbRef);
+    console.log("newPostRef: ", newbookRef);
+    set(newbookRef, savedata);
+    
+    console.log(savedata);
+    });
+
+
+
+</script>
+
+
   </body>
-
-  <!-- 出典1:JavascriptでExcel(XLSX)を読み込む -->
-  <!-- https://qiita.com/tomgoodsun/items/bc5f2db3c28e1a6525d2 -->
-  <!-- 出典2:総務省統計局 世界の統計2022 -->
+  
+  <!-- 出典:タブの切り替え表示を実装する-->
+  <!-- https://qiita.com/koki_73/items/33aa2456ecfcce61214a -->
+  <!-- 出典:総務省統計局 世界の統計2022 -->
   <!-- https://www.stat.go.jp/data/sekai/0116.html -->
+  <!-- 出典:JavascriptでExcel(XLSX)を読み込む -->
+  <!-- https://qiita.com/tomgoodsun/items/bc5f2db3c28e1a6525d2 -->
 
+  
 
   </html>
