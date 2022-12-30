@@ -137,11 +137,22 @@ const firebaseConfig = {
   $("#all-delete").on("click", function () {
     remove(dbRef);
     location.reload();
-  }); 
+  });
 
-}
+  document.getElementById('dllnk').addEventListener('click', (event) => {
+    // JSON ファイルを表す Blob オブジェクトを生成
+    const json = JSON.stringify(data_json);
+    const blob = new Blob([json], { type: 'application/json' });
    
-  document.getElementById('import-excel').addEventListener('change', function (evt) {
+    // a 要素の href 属性に Object URL を セット
+    event.currentTarget.href = window.URL.createObjectURL(blob);
+  });
+
+
+  };
+  
+  
+   document.getElementById('import-excel').addEventListener('change', function (evt) {
     var files = evt.target.files;
     var i, f;
     for (i = 0, f = files[i]; i != files.length; ++i) {
@@ -150,6 +161,3 @@ const firebaseConfig = {
       });
     }
   }, false);
-
-
-  
