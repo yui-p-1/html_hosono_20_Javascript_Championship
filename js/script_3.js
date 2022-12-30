@@ -1,3 +1,6 @@
+import result2 from "../js/script_2.js";
+console.log(result2);
+
 /*
  * JSONデータ格納用
  */
@@ -9,12 +12,14 @@ var data2 = null;
 function showTable(){
     // 表示用tableタグを生成
     var tag = "<table>";
-    tag += "<tr><th>No</th><th>Code</th><th>Country-Name</th></tr>";
+    tag += "<tr><th>code</th><th>name_en</th><th>capital_en</th><th>lat</th><th>lon</th></tr>";
     for(var i=0; i<data2.length; i++){
         tag += "<tr>";
-        tag += "<td>" + data2[i].countryNo + "</td>";    // country-Noを取得
-        tag += "<td>" + data2[i].countryCode + "</td>";       // country-codeを取得
-        tag += "<td>" + data2[i].countryName + "</td>";       // country-nameを取得
+        tag += "<td>" + data2[i].country_code + "</td>";    
+        tag += "<td>" + data2[i].name_en + "</td>";
+        tag += "<td>" + data2[i].capital_en + "</td>";
+        tag += "<td>" + data2[i].lat + "</td>";
+        tag += "<td>" + data2[i].lon + "</td>";
         tag += "</tr>";
     }
     tag += "</table>";
