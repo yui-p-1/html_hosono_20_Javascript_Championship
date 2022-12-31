@@ -4,7 +4,7 @@ console.log(Result);
 /*
  * JSONデータ格納用
  */
-var data2 = null;
+var margedata = null;
  
 /*
  * データを整形してテーブル表示
@@ -13,18 +13,18 @@ function showTable(){
     // 表示用tableタグを生成
     var tag = "<table>";
     tag += "<tr><th>code</th><th>name_en</th><th>capital_en</th><th>lat</th><th>lon</th></tr>";
-    for(var i=0; i<data2.length; i++){
+    for(var i=0; i<margedata.length; i++){
         tag += "<tr>";
-        tag += "<td>" + data2[i].country_code + "</td>";    
-        tag += "<td>" + data2[i].name_en + "</td>";
-        tag += "<td>" + data2[i].capital_en + "</td>";
-        tag += "<td>" + data2[i].lat + "</td>";
-        tag += "<td>" + data2[i].lon + "</td>";
+        tag += "<td>" + margedata[i].country_code + "</td>";    
+        tag += "<td>" + margedata[i].name_en + "</td>";
+        tag += "<td>" + margedata[i].capital_en + "</td>";
+        tag += "<td>" + margedata[i].lat + "</td>";
+        tag += "<td>" + margedata[i].lon + "</td>";
         tag += "</tr>";
     }
     tag += "</table>";
     // HTMLファイルに生成したtableタグを設定（ここで表示される）
-    document.getElementById("contents").innerHTML = tag;
+    document.getElementById("contents_3").innerHTML = tag;
 }
  
 /*
@@ -32,17 +32,18 @@ function showTable(){
  */
 window.onload = function(){
     // XMLHttpRequestオブジェクトを作成
-    var country = new XMLHttpRequest();
+    var margetable = new XMLHttpRequest();
     // JOSNデータファイルを開く
-    country.open("GET", "./json/marge.json", true);
+    margetable.open("GET", "./json/marge.json", true);
     // データファイル取得完了後の処理
-    country.onload = function(){
-        data2 = JSON.parse(this.responseText);   // JSONデータとしてdataに読み込む
+    margetable.onload = function(){
+        margedata = JSON.parse(this.responseText);   // JSONデータとしてdataに読み込む
         showTable();                            // テーブルに整形して表示
-        console.log(data2);
+        console.log(margedata);
     }
     // リクエストを送信
-    country.send(null);
+    margetable.send(null);
+    console.log(margetable);
 
 };
 

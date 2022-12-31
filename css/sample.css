@@ -33,8 +33,23 @@ body {
       margin-top: 50px;
       display: flex;
       width: 1800px;
+      flex-flow: column;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-  
+
+.container {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+}    
+
+.box {
+  width: 50%;
+  /* display: flex; */
+  /* flex-flow: column; */
+}
 
 .result_1 {
     font-size: 30px;
@@ -53,3 +68,4 @@ body {
   height: 600px;
   overflow-y: scroll;  /* スクロールバーを表示(※) */
 }
+

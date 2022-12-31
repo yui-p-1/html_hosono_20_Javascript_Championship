@@ -1,14 +1,14 @@
-import data1 from '../json/data.json' assert {type: 'json'};
-    console.log(data1);
+import data_1 from '../json/data_1.json' assert {type: 'json'};
+    console.log(data_1);
 
-import data2 from '../json/marge.json' assert {type: 'json'};
-    console.log(data2);
+import data_2 from '../json/data_2.json' assert {type: 'json'};
+    console.log(data_2);
 
-    var data1_r1 = data1.reduce( (rslt, entry) =>
+    var data1_r1 = data_1.reduce( (rslt, entry) =>
     (rslt[entry.country_code] = entry, rslt), {});
     console.log( data1_r1 );
 
-    var data2_r1 = data2.reduce( (rslt, entry) =>
+    var data2_r1 = data_2.reduce( (rslt, entry) =>
     (rslt[entry.country_code] = entry, rslt), {});
     console.log( data2_r1 );
 
@@ -43,17 +43,19 @@ import data2 from '../json/marge.json' assert {type: 'json'};
 
     export default Result;
 
-    const ArrayResult = Object.entries(Result);
-    console.log(ArrayResult);
+    // const ArrayResult = Object.entries(Result);
+    // console.log(ArrayResult);
     
-document.getElementById('dllnk_2').addEventListener('click', (event) => {
+document.getElementById('dllnk_3').addEventListener('click', (event) => {
     // JSON ファイルを表す Blob オブジェクトを生成
     const json = JSON.stringify(Result);
+    console.log(json);
     const blob = new Blob([json], { type: 'application/json' });
     // const blob = new Blob([Result], { type: 'application/json' });
    
     // a 要素の href 属性に Object URL を セット
     event.currentTarget.href = window.URL.createObjectURL(blob);
+    // event.currentTarget.href = window.URL.createObjectURL(json);
   });
 
 // 出典:配列（内はJSON）同士を条件によって結合したい
