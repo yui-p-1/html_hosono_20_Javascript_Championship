@@ -110,7 +110,7 @@ const firebaseConfig = {
   }
   
   function renderResult(name, content) {
-    var elem = document.getElementById('result');
+    var elem = document.getElementById('result_1');
     var html = elem.innerHTML;
     html += '<h3>' + name + '</h3>';
     html += '<pre>' + content + '</pre>';
@@ -158,6 +158,60 @@ const firebaseConfig = {
     for (i = 0, f = files[i]; i != files.length; ++i) {
       var er = new ExcelJs.Reader(f, function (e, xlsx) {
         renderResult(xlsx.getFile().name, JSON.stringify(xlsx.toJson(), null, 2));
+      });
+    }
+  }, false);
+
+  // ファイル2用----------------------------------
+
+  function renderResult_2(name_2, content_2) {
+    var elem_2 = document.getElementById('result_2');
+    var html_2 = elem_2.innerHTML;
+    html_2 += '<h3>' + name_2 + '</h3>';
+    html_2 += '<pre>' + content_2 + '</pre>';
+    elem_2.innerHTML = html_2;
+
+      // console.log(content);
+      const data_json_2 = JSON.parse( content_2 );
+      console.log(data_json_2);
+
+  // クリックでFireBaseに保存
+  $("#Save").on("click", function () {
+    
+    const savedata_2 = data_json_2;
+
+    console.log(savedata_2);
+
+    const inputdata_2 = push(dbRef);
+    // console.log("newPostRef: ", newbookRef);
+    set(inputdata_2, savedata_2);
+
+  });
+
+  // // クリックでFireBase削除
+  // $("#all-delete").on("click", function () {
+  //   remove(dbRef);
+  //   location.reload();
+  // });
+
+  document.getElementById('dllnk_2').addEventListener('click', (event) => {
+    // JSON ファイルを表す Blob オブジェクトを生成
+    const json_2 = JSON.stringify(data_json_2);
+    const blob_2 = new Blob([json_2], { type: 'application/json' });
+   
+    // a 要素の href 属性に Object URL を セット
+    event.currentTarget.href = window.URL.createObjectURL(blob_2);
+  });
+
+
+  };
+
+  document.getElementById('import-excel_2').addEventListener('change', function (evt) {
+    var files_2 = evt.target.files;
+    var i, f;
+    for (i = 0, f = files_2[i]; i != files_2.length; ++i) {
+      var er = new ExcelJs.Reader(f, function (e, xlsx) {
+        renderResult_2(xlsx.getFile().name, JSON.stringify(xlsx.toJson(), null, 2));
       });
     }
   }, false);

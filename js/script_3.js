@@ -1,5 +1,5 @@
-import result2 from "../js/script_2.js";
-console.log(result2);
+import Result from "../js/script_2.js";
+console.log(Result);
 
 /*
  * JSONデータ格納用
@@ -34,12 +34,12 @@ window.onload = function(){
     // XMLHttpRequestオブジェクトを作成
     var country = new XMLHttpRequest();
     // JOSNデータファイルを開く
-    country.open("GET", "./json/country.json", true);
+    country.open("GET", "./json/marge.json", true);
     // データファイル取得完了後の処理
     country.onload = function(){
         data2 = JSON.parse(this.responseText);   // JSONデータとしてdataに読み込む
         showTable();                            // テーブルに整形して表示
-        // console.log(data2);
+        console.log(data2);
     }
     // リクエストを送信
     country.send(null);
