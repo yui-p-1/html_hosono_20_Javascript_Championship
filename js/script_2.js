@@ -58,6 +58,13 @@ document.getElementById('dllnk_3').addEventListener('click', (event) => {
     // event.currentTarget.href = window.URL.createObjectURL(json);
   });
 
+
+       // 表示用要素取得
+       let elm = document.getElementsByClassName("result_3")[0];
+
+       // JSON 文字列に変換して表示
+       elm.textContent = JSON.stringify(Result);
+  
 // 出典:配列（内はJSON）同士を条件によって結合したい
 // https://teratail.com/questions/295412
 
@@ -66,3 +73,9 @@ document.getElementById('dllnk_3').addEventListener('click', (event) => {
 
 // 出典:javascript オブジェクトを配列化する
 // https://mebee.info/2021/01/04/post-19151/
+
+
+// 時間があったらチャレンジする！！
+// 出典:Excelの表データをホームページ上で表示する
+// https://blog.19manabu.net/20170909/excel%E3%81%AE%E8%A1%A8%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E4%B8%8A%E3%81%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B/
+
