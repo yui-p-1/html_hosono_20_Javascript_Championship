@@ -5,11 +5,11 @@ import data_2 from '../json/data_2.json' assert {type: 'json'};
     console.log(data_2);
 
     var data1_r1 = data_1.reduce( (rslt, entry) =>
-    (rslt[entry.country_code] = entry, rslt), {});
+    (rslt[entry.name_jp] = entry, rslt), {});
     console.log( data1_r1 );
 
     var data2_r1 = data_2.reduce( (rslt, entry) =>
-    (rslt[entry.country_code] = entry, rslt), {});
+    (rslt[entry.name_jp] = entry, rslt), {});
     console.log( data2_r1 );
 
     function mergeDeeply(target, source, opts) {
@@ -64,7 +64,22 @@ document.getElementById('dllnk_3').addEventListener('click', (event) => {
 
        // JSON 文字列に変換して表示
        elm.textContent = JSON.stringify(Result);
-  
+
+
+// 右側のコンテンツ
+     $("#decide").on("click", function () {
+        const decide = document.getElementById("name");
+    };
+
+// document.getElementById("decide").onclick = function() {
+    //     const name = document.getElementById("name");
+        
+    //     console.log(name);
+    // };
+
+    
+
+
 // 出典:配列（内はJSON）同士を条件によって結合したい
 // https://teratail.com/questions/295412
 

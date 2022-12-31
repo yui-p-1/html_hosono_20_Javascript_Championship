@@ -47,8 +47,6 @@ body {
 
 .box {
   width: 50%;
-  /* display: flex; */
-  /* flex-flow: column; */
 }
 
 .result_1 {
@@ -76,5 +74,9 @@ body {
   width: 900px;
   height: 600px;
   overflow-y: scroll;  /* スクロールバーを表示(※) */
+}
+
+.output {
+  height: 200px;
 }
 

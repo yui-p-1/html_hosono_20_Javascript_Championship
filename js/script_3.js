@@ -1,16 +1,25 @@
 import Result from "../js/script_2.js";
-console.log(Result);
+console.log(Result); // これはオブジェクト
+
+// console.log(Object.keys(Result));
+
+console.log(Result["アメリカ合衆国"]);
+
 
 const myArray = Object.values(Result);
-console.log(myArray);
-
+console.log(myArray); // これは配列
 
 for(var i=0; i<myArray.length; i++){
-
 const column1 = myArray[i].country_code;
+// console.log(column1);
+};
 
-console.log(column1);
-}
+// const country_name_search = (myA) => {
+    // return myA.country_code = "AX"
+// }
+
+// const answer = myArray.find(country_name_search)
+// console.log(answer);
 
 
 /*
@@ -55,7 +64,6 @@ window.onload = function(){
     }
     // リクエストを送信
     margetable.send(null);
-    console.log(margetable);
 
 };
 
