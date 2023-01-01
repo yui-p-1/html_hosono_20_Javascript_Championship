@@ -55,7 +55,7 @@ body {
     text-align: left;
     display: block;
     width: 900px;
-    height: 600px;
+    height: 500px;
     overflow-y: scroll;  /* スクロールバーを表示(※) */
 }
 
@@ -64,7 +64,7 @@ body {
   text-align: left;
   display: block;
   width: 900px;
-  height: 600px;
+  height: 500px;
   overflow-y: scroll;  /* スクロールバーを表示(※) */
 }
 

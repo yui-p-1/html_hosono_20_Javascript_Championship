@@ -29,6 +29,9 @@ function butotnClick(){
     console.log("try1=");
     console.log(try1);
 
+    return { try1
+    };
+
 };
   
   let nameText = document.getElementById('nameText');
@@ -38,40 +41,43 @@ function butotnClick(){
   let checkButton = document.getElementById('checkButton');
   checkButton.addEventListener('click', butotnClick);
 
+  const Result = butotnClick().try1;
 
-    function mergeDeeply(target, source, opts) {
-        const isObject = obj => obj && typeof obj === 'object' && !Array.isArray(obj);
-        const isConcatArray = opts && opts.concatArray;
-        let result = Object.assign({}, target);
-        if (isObject(target) && isObject(source)) {
-            for (const [sourceKey, sourceValue] of Object.entries(source)) {
-                const targetValue = target[sourceKey];
-                if (isConcatArray && Array.isArray(sourceValue) && Array.isArray(targetValue)) {
-                    result[sourceKey] = targetValue.concat(...sourceValue);
-                }
-                else if (isObject(sourceValue) && target.hasOwnProperty(sourceKey)) {
-                    result[sourceKey] = mergeDeeply(targetValue, sourceValue, opts);
-                }
-                else {
-                    Object.assign(result, {[sourceKey]: sourceValue});
-                }
-            }
-        }
-        return result;
-    }
+  export default Result;
 
-        const adeep = data1_r1;
-        const bdeep = data2_r1;
+    // function mergeDeeply(target, source, opts) {
+    //     const isObject = obj => obj && typeof obj === 'object' && !Array.isArray(obj);
+    //     const isConcatArray = opts && opts.concatArray;
+    //     let result = Object.assign({}, target);
+    //     if (isObject(target) && isObject(source)) {
+    //         for (const [sourceKey, sourceValue] of Object.entries(source)) {
+    //             const targetValue = target[sourceKey];
+    //             if (isConcatArray && Array.isArray(sourceValue) && Array.isArray(targetValue)) {
+    //                 result[sourceKey] = targetValue.concat(...sourceValue);
+    //             }
+    //             else if (isObject(sourceValue) && target.hasOwnProperty(sourceKey)) {
+    //                 result[sourceKey] = mergeDeeply(targetValue, sourceValue, opts);
+    //             }
+    //             else {
+    //                 Object.assign(result, {[sourceKey]: sourceValue});
+    //             }
+    //         }
+    //     }
+    //     return result;
+    // }
 
-    const deepResult = mergeDeeply(adeep, bdeep, {concatArray: true});
+    //     const adeep = data1_r1;
+    //     const bdeep = data2_r1;
 
-    console.log('deepResult=');
-    console.log(deepResult);
+    // const deepResult = mergeDeeply(adeep, bdeep, {concatArray: true});
 
-    export default deepResult;
+    // console.log('deepResult=');
+    // console.log(deepResult);
 
-    const ArrayResult = Object.entries(Result);
-    console.log(ArrayResult);
+    // export default deepResult;
+
+    // const ArrayResult = Object.entries(Result);
+    // console.log(ArrayResult);
     
 document.getElementById('dllnk_3').addEventListener('click', (event) => {
     // JSON ファイルを表す Blob オブジェクトを生成
