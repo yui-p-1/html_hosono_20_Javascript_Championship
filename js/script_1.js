@@ -118,14 +118,14 @@ const firebaseConfig = {
 
       // console.log(content);
       const data_json = JSON.parse( content );
-      console.log(data_json);
+      // console.log(data_json);
 
   // クリックでFireBaseに保存
   $("#Save").on("click", function () {
     
     const savedata = data_json;
 
-    console.log(savedata);
+    // console.log(savedata);
 
     const inputdata = push(dbRef);
     // console.log("newPostRef: ", newbookRef);
@@ -173,14 +173,14 @@ const firebaseConfig = {
 
       // console.log(content);
       const data_json_2 = JSON.parse( content_2 );
-      console.log(data_json_2);
+      // console.log(data_json_2);
 
   // クリックでFireBaseに保存
   $("#Save").on("click", function () {
     
     const savedata_2 = data_json_2;
 
-    console.log(savedata_2);
+    // console.log(savedata_2);
 
     const inputdata_2 = push(dbRef);
     // console.log("newPostRef: ", newbookRef);

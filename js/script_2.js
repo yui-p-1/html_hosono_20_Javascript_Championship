@@ -12,6 +12,10 @@ import data_2 from '../json/data_2.json' assert {type: 'json'};
     (rslt[entry.name_jp] = entry, rslt), {});
     console.log( data2_r1 );
 
+    const try2 = Object.assign(data_r1, data_r2);
+    console.log("try2=");
+    console.log(try2);
+
     function mergeDeeply(target, source, opts) {
         const isObject = obj => obj && typeof obj === 'object' && !Array.isArray(obj);
         const isConcatArray = opts && opts.concatArray;
@@ -69,7 +73,7 @@ document.getElementById('dllnk_3').addEventListener('click', (event) => {
 // 右側のコンテンツ
      $("#decide").on("click", function () {
         const decide = document.getElementById("name");
-    };
+    });
 
 // document.getElementById("decide").onclick = function() {
     //     const name = document.getElementById("name");

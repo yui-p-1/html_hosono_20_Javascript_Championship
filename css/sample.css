@@ -20,6 +20,7 @@ body {
       border-right: 1px solid #50637b;
       border-left: 1px solid #222e3e;
     }
+    
     .tab.active {
       background-color: #ccc;
       color: #222e3e;

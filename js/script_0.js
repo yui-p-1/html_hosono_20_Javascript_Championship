@@ -8,4 +8,4 @@ $(function() {
       const index = tabs.index(this); // クリックした箇所がタブの何番目か判定し、定数indexとして定義
       $(".content").removeClass("show").eq(index).addClass("show"); // showクラスを消して、contentクラスのindex番目にshowクラスを追加
     })
-  })
+  });
