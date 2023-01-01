@@ -12,6 +12,19 @@ elm4.textContent = Object.keys(margedata);
 const rrr = Object.values(margedata);
 console.log(rrr);
 
+// 表を作成
+const datatable = document.getElementById("datatable");
+margedata.forEach((eachdata) => {  // 配列の中のオブジェクトの数だけ処理を繰り返す
+    const tr = document.createElement("tr");  
+    datatable.appendChild(tr); // 表の中に８個の「tr」（行）ができる
+    // 1行の中を生成
+    const objArray = Object.entries(eachdata);  // オブジェクトを配列に
+    objArray.forEach((arr) => { // No, name, age, gradeの4回繰り返す
+      const td = document.createElement("td");
+      td.textContent = arr[1];  // arr[1]はvalueの部分
+      tr.appendChild(td);
+    });
+  });
 
 // const myArray = Object.values(margedata);
 // console.log(myArray); // これは配列。検索の時には有用だが・・・
