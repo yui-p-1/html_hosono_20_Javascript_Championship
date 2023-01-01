@@ -4,7 +4,7 @@ console.log(Result); // これはオブジェクト
 // console.log(Object.keys(Result));
 
 
-console.log(Result["アメリカ合衆国"]);
+// console.log(Result["アメリカ合衆国"]);
 
 
 const myArray = Object.values(Result);
