@@ -1,79 +1,27 @@
-import Result from "../js/script_2.js";
+import margedata from '../json/marge.json' assert {type: 'json'};
 
-console.log(Result); // これはオブジェクト
+let elm4 = document.getElementsByClassName("result_4")[0];
+// JSON 文字列に変換して表示
+elm4.textContent = Object.keys(margedata);
 
-// console.log(Object.keys(Result));
+console.log(margedata["JP"]); // これは使える！
 
+const char = Object.entries(margedata);
+console.log(char[111][1]);
 
-// console.log(Result["アメリカ合衆国"]);
-
-
-const myArray = Object.values(Result);
-console.log(myArray); // これは配列
-
-for(var i=0; i<myArray.length; i++){
-const column1 = myArray[i].country_code;
-// console.log(column1);
-};
-
-// const country_name_search = (myA) => {
-    // return myA.country_code = "AX"
-// }
-
-// const answer = myArray.find(country_name_search)
-// console.log(answer);
+const rrr = Object.values(margedata);
+console.log(rrr);
 
 
-/*
- * JSONデータ格納用
- */
-// var margedata = null;
- 
-/*
- * データを整形してテーブル表示
- */
-// function showTable(){
-//     // 表示用tableタグを生成
-//     var tag = "<table>";
-//     tag += "<tr><th>code</th><th>name_en</th><th>capital_en</th><th>lat</th><th>lon</th></tr>";
-//     for(var i=0; i<margedata.length; i++){
-//         tag += "<tr>";
-//         tag += "<td>" + margedata[i].country_code + "</td>";    
-//         tag += "<td>" + margedata[i].name_en + "</td>";
-//         tag += "<td>" + margedata[i].capital_en + "</td>";
-//         tag += "<td>" + margedata[i].lat + "</td>";
-//         tag += "<td>" + margedata[i].lon + "</td>";
-//         tag += "</tr>";
-//     }
-//     tag += "</table>";
-//     // HTMLファイルに生成したtableタグを設定（ここで表示される）
-//     document.getElementById("contents_3").innerHTML = tag;
-// }
- 
-/*
- * 起動時の処理
- */
-// window.onload = function(){
-//     // XMLHttpRequestオブジェクトを作成
-//     var margetable = new XMLHttpRequest();
-//     // JOSNデータファイルを開く
-//     margetable.open("GET", "./json/marge.json", true);
-//     // データファイル取得完了後の処理
-//     margetable.onload = function(){
-//         margedata = JSON.parse(this.responseText);   // JSONデータとしてdataに読み込む
-//         showTable();                            // テーブルに整形して表示
-//         console.log(margedata);
-//     }
-//     // リクエストを送信
-//     margetable.send(null);
+// const myArray = Object.values(margedata);
+// console.log(myArray); // これは配列。検索の時には有用だが・・・
 
-// };
 
-// 出典:Object の値を抽出して配列で返してくれるメソッド - JavaScript Object.values
-// https://www.mitomex.blog/js-object-values/
+// // 出典:Object の値を抽出して配列で返してくれるメソッド - JavaScript Object.values
+// // https://www.mitomex.blog/js-object-values/
 
-// 時間があったらチャレンジする！！
-// 出典:Excelの表データをホームページ上で表示する
-// https://blog.19manabu.net/20170909/excel%E3%81%AE%E8%A1%A8%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E4%B8%8A%E3%81%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B/
+// // 時間があったらチャレンジする！！
+// // 出典:Excelの表データをホームページ上で表示する
+// // https://blog.19manabu.net/20170909/excel%E3%81%AE%E8%A1%A8%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E4%B8%8A%E3%81%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B/
 
 

@@ -34,8 +34,30 @@ function butotnClick(){
 
     const a = data1_r1;
     const b = data2_r1;
-    var Result = Object.assign(a, b);
 
+    function mergeDeeply(target, source, opts) {
+        const isObject = obj => obj && typeof obj === 'object' && !Array.isArray(obj);
+        const isConcatArray = opts && opts.concatArray;
+        let result = Object.assign({}, target);
+        if (isObject(target) && isObject(source)) {
+            for (const [sourceKey, sourceValue] of Object.entries(source)) {
+                const targetValue = target[sourceKey];
+                if (isConcatArray && Array.isArray(sourceValue) && Array.isArray(targetValue)) {
+                    result[sourceKey] = targetValue.concat(...sourceValue);
+                }
+                else if (isObject(sourceValue) && target.hasOwnProperty(sourceKey)) {
+                    result[sourceKey] = mergeDeeply(targetValue, sourceValue, opts);
+                }
+                else {
+                    Object.assign(result, {[sourceKey]: sourceValue});
+                }
+            }
+        }
+        return result;
+    }
+    
+    var Result = mergeDeeply(a, b);
+        
     // 表示用要素取得
     let elm = document.getElementsByClassName("result_3")[0];
 
@@ -52,8 +74,6 @@ function butotnClick(){
     });
 
 };   
-
-console.log(butotnClick().Result);
 
 // functionの外でResultを使いたい．．．．
 
