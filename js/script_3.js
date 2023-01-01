@@ -4,10 +4,10 @@ let elm4 = document.getElementsByClassName("result_4")[0];
 // JSON 文字列に変換して表示
 elm4.textContent = Object.keys(margedata);
 
-console.log(margedata["JP"]); // これは使える！
+// console.log(margedata["JP"]); // これは使える！
 
-const char = Object.entries(margedata);
-console.log(char[111][1]);
+// const char = Object.entries(margedata);
+// console.log(char[111][1]);
 
 const rrr = Object.values(margedata);
 console.log(rrr);
