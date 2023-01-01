@@ -1,4 +1,5 @@
 import Result from "../js/script_2.js";
+
 console.log(Result); // これはオブジェクト
 
 // console.log(Object.keys(Result));
@@ -26,47 +27,47 @@ const column1 = myArray[i].country_code;
 /*
  * JSONデータ格納用
  */
-var margedata = null;
+// var margedata = null;
  
 /*
  * データを整形してテーブル表示
  */
-function showTable(){
-    // 表示用tableタグを生成
-    var tag = "<table>";
-    tag += "<tr><th>code</th><th>name_en</th><th>capital_en</th><th>lat</th><th>lon</th></tr>";
-    for(var i=0; i<margedata.length; i++){
-        tag += "<tr>";
-        tag += "<td>" + margedata[i].country_code + "</td>";    
-        tag += "<td>" + margedata[i].name_en + "</td>";
-        tag += "<td>" + margedata[i].capital_en + "</td>";
-        tag += "<td>" + margedata[i].lat + "</td>";
-        tag += "<td>" + margedata[i].lon + "</td>";
-        tag += "</tr>";
-    }
-    tag += "</table>";
-    // HTMLファイルに生成したtableタグを設定（ここで表示される）
-    document.getElementById("contents_3").innerHTML = tag;
-}
+// function showTable(){
+//     // 表示用tableタグを生成
+//     var tag = "<table>";
+//     tag += "<tr><th>code</th><th>name_en</th><th>capital_en</th><th>lat</th><th>lon</th></tr>";
+//     for(var i=0; i<margedata.length; i++){
+//         tag += "<tr>";
+//         tag += "<td>" + margedata[i].country_code + "</td>";    
+//         tag += "<td>" + margedata[i].name_en + "</td>";
+//         tag += "<td>" + margedata[i].capital_en + "</td>";
+//         tag += "<td>" + margedata[i].lat + "</td>";
+//         tag += "<td>" + margedata[i].lon + "</td>";
+//         tag += "</tr>";
+//     }
+//     tag += "</table>";
+//     // HTMLファイルに生成したtableタグを設定（ここで表示される）
+//     document.getElementById("contents_3").innerHTML = tag;
+// }
  
 /*
  * 起動時の処理
  */
-window.onload = function(){
-    // XMLHttpRequestオブジェクトを作成
-    var margetable = new XMLHttpRequest();
-    // JOSNデータファイルを開く
-    margetable.open("GET", "./json/marge.json", true);
-    // データファイル取得完了後の処理
-    margetable.onload = function(){
-        margedata = JSON.parse(this.responseText);   // JSONデータとしてdataに読み込む
-        showTable();                            // テーブルに整形して表示
-        console.log(margedata);
-    }
-    // リクエストを送信
-    margetable.send(null);
+// window.onload = function(){
+//     // XMLHttpRequestオブジェクトを作成
+//     var margetable = new XMLHttpRequest();
+//     // JOSNデータファイルを開く
+//     margetable.open("GET", "./json/marge.json", true);
+//     // データファイル取得完了後の処理
+//     margetable.onload = function(){
+//         margedata = JSON.parse(this.responseText);   // JSONデータとしてdataに読み込む
+//         showTable();                            // テーブルに整形して表示
+//         console.log(margedata);
+//     }
+//     // リクエストを送信
+//     margetable.send(null);
 
-};
+// };
 
 // 出典:Object の値を抽出して配列で返してくれるメソッド - JavaScript Object.values
 // https://www.mitomex.blog/js-object-values/

@@ -215,3 +215,8 @@ const firebaseConfig = {
       });
     }
   }, false);
+
+  
+// 時間があったらチャレンジ
+// 出典： [ツール] ブラウザでJSONをフォーマット（整形）できるツールを作りました
+// https://dev.classmethod.jp/articles/release-json-formatter-on-web-app/
