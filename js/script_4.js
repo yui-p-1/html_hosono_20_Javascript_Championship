@@ -2,6 +2,8 @@
 import margedata from '../json/marge.json' assert {type: 'json'};
 
 console.log(margedata);
+// const margedata_1 = margedata.map( value => Number(value) )
+// 整数になる？ほかの関数を確認してから使う
 
 // var sample = [
 //     {x:1, y:4},{x:2, y:3},{x:3, y:4},{x:4, y:5},{x:5, y:6},{x:6, y:5},{x:7, y:7},{x:8, y:6},{x:9, y:8},{x:10, y:7}
@@ -31,6 +33,8 @@ console.log(margedata);
   ymean = sy/n;
   beta  = ((n*sxy) - (sx*sy))/((n*sxsq)-(Math.pow(sx,2))); // 傾き
   alpha = ymean - (beta * xmean); // 切片
+
+  console.log(sx);
   
   
   // 回帰式より、回帰直線描画用データを作成

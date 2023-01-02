@@ -2,10 +2,10 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title></title>
+    <title>Map&amp;Geolocation</title>
     <!-- Latest compiled and minified CSS -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="./css/sample.css">
@@ -23,10 +23,10 @@
         Step3_Table
       </div>
       <div class="tab">
-        Step3_Plot
+        Step4_Plot
       </div>
       <div class="tab">
-        タブ５
+        Step5_Map
       </div>
     </div>
 
@@ -76,7 +76,7 @@
       </div>
       
       <div class="content" id="contents_3">
-        <table class="content-table">
+        <table class="content-table" border="1" style="border-collapse: collapse">
           <thead>
             <tr>
               <th>A</th>
@@ -96,8 +96,10 @@
       </div>
 
       <div class="content">
-        タブ５の中身です
-      </div>
+        <div class="box">
+          <div id="view"></div>
+          <div id="myMap" style="width:100%; height:500px;"></div>
+      </div></div>
     </div>
     
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -113,7 +115,9 @@
     <script type="module" src="./js/script_3.js" type="text/javascript"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <script type="module" src="./js/script_4.js"></script>
-
+    <script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=Ao_ESbWpabVG64QS8J4pi7vN8DnUljBna8ybzNBaq_37M55BnIEfrvbOXMdKyGYp' async defer></script>
+    <script src="./js/BmapQuery.js"></script>
+    <script src="./js/script_5.js"></script>
 
   </body>
   

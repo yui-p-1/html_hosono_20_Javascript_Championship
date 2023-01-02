@@ -9,14 +9,18 @@ elm4.textContent = Object.keys(margedata);
 // const char = Object.entries(margedata);
 // console.log(char[111][1]);
 
+// 他の例だったらエラー出るかも。margedataがObjectか、配列かでif文のほうがBetter？要確認
 const rrr = Object.values(margedata);
 console.log(rrr);
 
+console.log(Object.keys(rrr));
+
 // 表を作成
+
 const datatable = document.getElementById("datatable");
-margedata.forEach((eachdata) => {  // 配列の中のオブジェクトの数だけ処理を繰り返す
+rrr.forEach((eachdata) => {  // 配列の中のオブジェクトの数だけ処理を繰り返す
     const tr = document.createElement("tr");  
-    datatable.appendChild(tr); // 表の中に８個の「tr」（行）ができる
+    datatable.appendChild(tr); // 表の中にN個の「tr」（行）ができる
     // 1行の中を生成
     const objArray = Object.entries(eachdata);  // オブジェクトを配列に
     objArray.forEach((arr) => { // No, name, age, gradeの4回繰り返す
@@ -26,12 +30,15 @@ margedata.forEach((eachdata) => {  // 配列の中のオブジェクトの数だ
     });
   });
 
-// const myArray = Object.values(margedata);
-// console.log(myArray); // これは配列。検索の時には有用だが・・・
 
+//出典:【JavaScript】配列/オブジェクトの形とデータ取得の方法
+// https://webdrawer.net/javascript/array-object.html
 
 // // 出典:Object の値を抽出して配列で返してくれるメソッド - JavaScript Object.values
 // // https://www.mitomex.blog/js-object-values/
+
+//出典:【javascript】連想配列をテーブルできれいに表示する方法
+// https://gxy-life.com/2PC/PC/PC20211011.html
 
 // // 時間があったらチャレンジする！！
 // // 出典:Excelの表データをホームページ上で表示する
