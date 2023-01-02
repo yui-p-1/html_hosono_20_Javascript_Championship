@@ -1,12 +1,10 @@
 // 散布図データ
-import margedata from '../json/marge.json' assert {type: 'json'};
+import margedata from '../json/plot.json' assert {type: 'json'};
 
 console.log(margedata);
-// const margedata_1 = margedata.map( value => Number(value) )
-// 整数になる？ほかの関数を確認してから使う
 
-// var sample = [
-//     {x:1, y:4},{x:2, y:3},{x:3, y:4},{x:4, y:5},{x:5, y:6},{x:6, y:5},{x:7, y:7},{x:8, y:6},{x:9, y:8},{x:10, y:7}
+// const margedata = [
+//      {x:1, y:4},{x:2, y:3},{x:3, y:4},{x:4, y:5},{x:5, y:6},{x:6, y:5},{x:7, y:7},{x:8, y:6},{x:9, y:8},{x:10, y:7}
 //   ];
   
   
@@ -34,7 +32,7 @@ console.log(margedata);
   beta  = ((n*sxy) - (sx*sy))/((n*sxsq)-(Math.pow(sx,2))); // 傾き
   alpha = ymean - (beta * xmean); // 切片
 
-  console.log(sx);
+  console.log(xmean);
   
   
   // 回帰式より、回帰直線描画用データを作成
@@ -50,6 +48,7 @@ console.log(margedata);
     window.myChart = new Chart(ctx, {
       type: 'scatter',
       data: plotData,
+      options: options
     });
   };
   
@@ -81,9 +80,51 @@ console.log(margedata);
     ],
   };
 
+  // チャレンジ
+  var options = {
+    responsive: true,
+    title:{ display:true,
+        text:'Chart sample'
+    },
+    // scales: {
+    //     xAxes: [{ display: true,
+    //         scaleLabel: { display: true, labelString: '時刻' },
+    //         type: "time",
+    //         time: {
+    //             unit: "hour",
+    //             displayFormats:{ hour: 'HH:mm' },
+    //             min: new moment().hour(5).minute(0).second(0).millisecond(0),
+    //             max: new moment().hour(17).minute(0).second(0).millisecond(0),
+    //         },
+    //     }],
+    //     yAxes: [{ display: true,
+    //         scaleLabel: { display: true, labelString: 'Value' },
+    //         ticks: { min: 0, max: 100, stepSize: 20 }
+    //     }]
+    // },
+    tooltips: {
+        titleFontSize: 18,
+        bodyFontSize: 18,
+        callbacks: {
+            title: function (tooltipItem, data){
+                return "First";
+            },
+            label: function (tooltipItem, data){
+                return "Label + 工事中";
+            }
+        }
+    },
+    legend:{    /* 凡例クリックが伝播しないようにする。*/
+         onClick: function(){ return false; },
+    },
+};
+
 
 // 出典:Chart.jsで回帰直線を描画
 // https://qiita.com/saka212/items/f51282765b289c0f0d46
+
+// 出典:Chart.jsツールチップカスタマイズ
+// https://oboe2uran.hatenablog.com/entry/2018/02/08/232053
 
 // 出典:JavaScriptでグラフ描画入門！全８個のライブラリをコード付きで一挙に解説！
 // https://paiza.hatenablog.com/entry/2016/06/07/JavaScript%E3%81%A7%E3%82%B0%E3%83%A9%E3%83%95%E6%8F%8F%E7%94%BB%E5%85%A5%E9%96%80%EF%BC%81%E5%85%A8%EF%BC%98%E5%80%8B%E3%81%AE%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%82%92%E3%82%B3%E3%83%BC

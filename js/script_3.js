@@ -1,4 +1,5 @@
 import margedata from '../json/marge.json' assert {type: 'json'};
+console.log(margedata);//Object
 
 let elm4 = document.getElementsByClassName("result_4")[0];
 // JSON 文字列に変換して表示
@@ -6,19 +7,15 @@ elm4.textContent = Object.keys(margedata);
 
 // console.log(margedata["JP"]); // これは使える！
 
-// const char = Object.entries(margedata);
-// console.log(char[111][1]);
 
 // 他の例だったらエラー出るかも。margedataがObjectか、配列かでif文のほうがBetter？要確認
-const rrr = Object.values(margedata);
-console.log(rrr);
-
-console.log(Object.keys(rrr));
+const margedataArr = Object.values(margedata);
+console.log(margedataArr);//Array
 
 // 表を作成
 
 const datatable = document.getElementById("datatable");
-rrr.forEach((eachdata) => {  // 配列の中のオブジェクトの数だけ処理を繰り返す
+margedataArr.forEach((eachdata) => {  // 配列の中のオブジェクトの数だけ処理を繰り返す
     const tr = document.createElement("tr");  
     datatable.appendChild(tr); // 表の中にN個の「tr」（行）ができる
     // 1行の中を生成
@@ -27,8 +24,11 @@ rrr.forEach((eachdata) => {  // 配列の中のオブジェクトの数だけ処
       const td = document.createElement("td");
       td.textContent = arr[1];  // arr[1]はvalueの部分
       tr.appendChild(td);
+
     });
   });
+
+  console.log(datatable);
 
 
 //出典:【JavaScript】配列/オブジェクトの形とデータ取得の方法

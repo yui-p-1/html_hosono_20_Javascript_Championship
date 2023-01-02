@@ -116,16 +116,15 @@ const firebaseConfig = {
     html += '<pre>' + content + '</pre>';
     elem.innerHTML = html;
 
-      // console.log(content);
       const data_json = JSON.parse( content );
-      // console.log(data_json);
+      // var data_json = data_j.toUpperCase();
+
 
   // クリックでFireBaseに保存
   $("#Save").on("click", function () {
     
     const savedata = data_json;
-
-    // console.log(savedata);
+    console.log(savedata);
 
     const inputdata = push(dbRef);
     // console.log("newPostRef: ", newbookRef);
