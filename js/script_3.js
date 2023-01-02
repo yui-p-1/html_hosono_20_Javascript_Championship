@@ -7,12 +7,10 @@ elm4.textContent = Object.keys(margedata);
 
 // console.log(margedata["JP"]); // これは使える！
 
+// 表を作成する。Arrayであることが必要なので変換する。
 
-// 他の例だったらエラー出るかも。margedataがObjectか、配列かでif文のほうがBetter？要確認
 const margedataArr = Object.values(margedata);
 console.log(margedataArr);//Array
-
-// 表を作成
 
 const datatable = document.getElementById("datatable");
 margedataArr.forEach((eachdata) => {  // 配列の中のオブジェクトの数だけ処理を繰り返す
@@ -30,6 +28,40 @@ margedataArr.forEach((eachdata) => {  // 配列の中のオブジェクトの数
 
   console.log(datatable);
 
+// Excelに保存する
+  document.getElementById('dl-xlsx').addEventListener('click', function () {
+    var wopts = {
+      bookType: 'xlsx',
+      bookSST: false,
+      type: 'binary'
+    };
+  
+    var workbook = {SheetNames: [], Sheets: {}};
+  
+    document.querySelectorAll('table.content-table').forEach(function (currentValue, index) {
+      // sheet_to_workbook()の実装を参考に記述
+      var n = currentValue.getAttribute('data-sheet-name');
+      if (!n) {
+        n = 'Sheet' + index;
+      }
+      workbook.SheetNames.push(n);
+      workbook.Sheets[n] = XLSX.utils.table_to_sheet(currentValue, wopts);
+    });
+  
+    var wbout = XLSX.write(workbook, wopts);
+  
+    function s2ab(s) {
+      var buf = new ArrayBuffer(s.length);
+      var view = new Uint8Array(buf);
+      for (var i = 0; i != s.length; ++i) {
+        view[i] = s.charCodeAt(i) & 0xFF;
+      }
+      return buf;
+    }
+  
+    saveAs(new Blob([s2ab(wbout)], {type: 'application/octet-stream'}), 'test.xlsx');
+  }, false);
+
 
 //出典:【JavaScript】配列/オブジェクトの形とデータ取得の方法
 // https://webdrawer.net/javascript/array-object.html
@@ -39,6 +71,9 @@ margedataArr.forEach((eachdata) => {  // 配列の中のオブジェクトの数
 
 //出典:【javascript】連想配列をテーブルできれいに表示する方法
 // https://gxy-life.com/2PC/PC/PC20211011.html
+
+// 出典:HTMLのTableをExcelに出力するJavaScript
+// https://qiita.com/tomgoodsun/items/0107e5d778b803935fc0
 
 // // 時間があったらチャレンジする！！
 // // 出典:Excelの表データをホームページ上で表示する
