@@ -19,7 +19,7 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app); // Realtime DB に接続
   const dbRef = ref(db, "database"); // Realtime D内の database を使う
- 
+
   // Excelを読み込む
  (function (window, document) {
     window.ExcelJs = {};
@@ -133,11 +133,6 @@ const firebaseConfig = {
 
   });
 
-  // クリックでFireBase削除
-  $("#all-delete").on("click", function () {
-    remove(dbRef);
-    location.reload();
-  });
 
   document.getElementById('dllnk').addEventListener('click', (event) => {
     // JSON ファイルを表す Blob オブジェクトを生成
@@ -148,9 +143,7 @@ const firebaseConfig = {
     event.currentTarget.href = window.URL.createObjectURL(blob);
   });
 
-
   };
-  
   
    document.getElementById('import-excel').addEventListener('change', function (evt) {
     var files = evt.target.files;
@@ -171,28 +164,15 @@ const firebaseConfig = {
     html_2 += '<pre>' + content_2 + '</pre>';
     elem_2.innerHTML = html_2;
 
-      // console.log(content);
       const data_json_2 = JSON.parse( content_2 );
-      // console.log(data_json_2);
 
   // クリックでFireBaseに保存
   $("#Save").on("click", function () {
-    
     const savedata_2 = data_json_2;
-
-    // console.log(savedata_2);
-
     const inputdata_2 = push(dbRef);
-    // console.log("newPostRef: ", newbookRef);
     set(inputdata_2, savedata_2);
 
   });
-
-  // // クリックでFireBase削除
-  // $("#all-delete").on("click", function () {
-  //   remove(dbRef);
-  //   location.reload();
-  // });
 
   document.getElementById('dllnk_2').addEventListener('click', (event) => {
     // JSON ファイルを表す Blob オブジェクトを生成
@@ -215,6 +195,36 @@ const firebaseConfig = {
       });
     }
   }, false);
+
+
+  // クリックでFirebaseからデータ取得
+  $("#getdata").on("click", function () {
+    // チャレンジ
+    onChildAdded(dbRef, function(data) {
+      
+      const firekey = data.key
+      const firedata = data.val();
+      
+      console.log(firekey);
+      console.log(firedata);
+
+      // 表示用要素取得
+      var elm_4 = document.getElementsByClassName("result_1")[0];
+      var html_4 = elm_4.innerHTML;
+
+      html_4 += firekey;
+      html_4 += JSON.stringify(firedata);
+      elm_4.innerHTML = html_4;
+
+});
+  });
+
+
+  // クリックでFirebase削除
+  $("#all-delete").on("click", function () {
+    remove(dbRef);
+    location.reload();
+  });
 
   
 // 時間があったらチャレンジ
