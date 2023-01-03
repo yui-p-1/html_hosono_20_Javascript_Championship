@@ -1,11 +1,40 @@
+window.addEventListener('load', () => {
+  const f = document.getElementById('file_7');
+  f.addEventListener('change', evt => {
+    let input = evt.target;
+    if (input.files.length == 0) {
+      console.log('No file selected');
+      return;
+    }
+    const file = input.files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const pre = document.getElementById('result_7');
+      pre.innerHTML = reader.result;
+
+      var mmmdata = JSON.parse(reader.result) ;
+      console.log(mmmdata);
+
+    };
+   
+    reader.readAsText(file);
+    });
+    
+  });
+
+  var ttt = document.getElementById('result_7').innerHTML;
+  var ddd = Array.from(ttt);
+  console.log(ddd);
+
+
+
 // 散布図データ
-import margedata from '../json/plot.json' assert {type: 'json'};
+// import margedata from '../json/plot.json' assert {type: 'json'};
 
-console.log(margedata);
-
-// const margedata = [
-//      {x:1, y:4},{x:2, y:3},{x:3, y:4},{x:4, y:5},{x:5, y:6},{x:6, y:5},{x:7, y:7},{x:8, y:6},{x:9, y:8},{x:10, y:7}
-//   ];
+const margedata = [
+     {x:1, y:4},{x:2, y:3},{x:3, y:4},{x:4, y:5},{x:5, y:6},{x:6, y:5},{x:7, y:7},{x:8, y:6},{x:9, y:8},{x:10, y:7}
+  ];
   
   
   // 回帰直線の傾きと切片を求める
@@ -25,6 +54,8 @@ console.log(margedata);
     sxy += val.x * val.y;
     sxsq += Math.pow(val.x,2);
   });
+
+  // console.log(margedata);
   
   n = margedata.length;
   xmean = sx/n;
@@ -32,7 +63,7 @@ console.log(margedata);
   beta  = ((n*sxy) - (sx*sy))/((n*sxsq)-(Math.pow(sx,2))); // 傾き
   alpha = ymean - (beta * xmean); // 切片
 
-  console.log(xmean);
+  // console.log(xmean);
   
   
   // 回帰式より、回帰直線描画用データを作成
@@ -118,6 +149,10 @@ console.log(margedata);
          onClick: function(){ return false; },
     },
 };
+
+
+
+
 
 
 // 出典:Chart.jsで回帰直線を描画

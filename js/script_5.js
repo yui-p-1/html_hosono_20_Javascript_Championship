@@ -23,13 +23,13 @@ var map = null, infobox, dataLayer;
      pin[i] = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(maArr[i].LAT, maArr[i].LON));
      pin[i].Title = maArr[i].NAME_EN;
      pin[i].Description = JSON.stringify(maArr[i]);
-     console.log(pin[i]);
+    //  console.log(pin[i]);
      Microsoft.Maps.Events.addHandler(pin[i], 'click', displayInfobox);
      dataLayer.push(pin[i]);
    };
    };
 
-   console.log(maArr[0]);
+  //  console.log(maArr[0]);
 
  function displayInfobox(e) {
      if (e.targetType == 'pushpin') {

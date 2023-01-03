@@ -111,7 +111,9 @@ const firebaseConfig = {
   
   function renderResult(name, content) {
     var elem = document.getElementById('result_1');
+    console.log(elem);
     var html = elem.innerHTML;
+    console.log(html);
     html += '<h3>' + name + '</h3>';
     html += '<pre>' + content + '</pre>';
     elem.innerHTML = html;
@@ -198,7 +200,6 @@ const firebaseConfig = {
 
   // クリックでFirebaseからデータ取得
   $("#getdata").on("click", function () {
-    // チャレンジ
     onChildAdded(dbRef, function(data) {
       
       const firekey = data.key
