@@ -1,3 +1,25 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+import { getDatabase, ref, push, set, onChildAdded, remove, onChildRemoved }
+    from "https://cdnjs.cloudflare.com/ajax/libs/firebase/9.14.0/firebase-database.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyCbozVfg_k4EqKEs38-zF9zdEagcXvk-y4",
+    authDomain: "fir-demo-fd918.firebaseapp.com",
+    projectId: "fir-demo-fd918",
+    storageBucket: "fir-demo-fd918.appspot.com",
+    messagingSenderId: "72528433443",
+    appId: "1:72528433443:web:ac7b0280aecaa4973efc96"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app); // Realtime DB に接続
+  const dbRef = ref(db, "database"); // Realtime D内の database を使う
+
 import data_1 from '../json/data_1.json' assert {type: 'json'};
     console.log(data_1);
 
@@ -65,6 +87,15 @@ function butotnClick(){
 
     console.log("Result=");
     console.log(RRR);
+
+    // クリックでFireBaseに保存
+    const data_json_3 = JSON.stringify(RRR); //Json文字列に
+    $("#Save_3").on("click", function () {
+        const savedata_3 = data_json_3;
+        const inputdata_3 = push(dbRef);
+        set(inputdata_3, savedata_3);
+
+    });
  
     document.getElementById('dllnk_3').addEventListener('click', (event) => {
         const json = JSON.stringify(RRR);

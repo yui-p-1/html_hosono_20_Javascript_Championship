@@ -12,16 +12,9 @@ elm4.textContent = Object.keys(margedata);
 const margedataArr = Object.values(margedata);
 console.log(margedataArr);//Array
 
-// var pickup = Object.keys(margedataArr[4]);
-
 for (let i = 0; i < margedataArr.length; i++) {
 var pickup = Object.keys(margedataArr[i]);
-}
-console.log(pickup[0]);
-
-// var tablelist = new Array(pickup.length);
-// let tablelist = [];
-// console.log(tablelist);
+};
 
 const tablelist = document.getElementById("tablelist");
 const tr = document.createElement("tr");
@@ -47,7 +40,6 @@ margedataArr.forEach((eachdata) => {  // 配列の中のオブジェクトの数
     });
   });
 
-  console.log(datatable);
 
 // Excelに保存する
   document.getElementById('dl-xlsx').addEventListener('click', function () {

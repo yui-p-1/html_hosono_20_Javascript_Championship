@@ -166,7 +166,7 @@ const firebaseConfig = {
       const data_json_2 = JSON.parse( content_2 );
 
   // クリックでFireBaseに保存
-  $("#Save").on("click", function () {
+  $("#Save_2").on("click", function () {
     const savedata_2 = data_json_2;
     const inputdata_2 = push(dbRef);
     set(inputdata_2, savedata_2);
