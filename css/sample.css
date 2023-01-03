@@ -37,7 +37,6 @@ body {
       display: flex;
       width: 1800px;
       flex-flow: column;
-      display: flex;
       align-items: center;
       justify-content: center;
     }
@@ -88,13 +87,25 @@ body {
   overflow-y: scroll;  /* スクロールバーを表示(※) */
 }
 
+/* .result_5 {
+  font-size: 30px;
+  text-align: left;
+  display: block;
+  width: 1800px;
+  height: 600px;
+  overflow-y: scroll;
+}; */
+
+.dl-xlsx {
+  display: block;
+  align:center;
+  justify-content: center;
+}
+
 .output {
   height: 200px;
 }
 
-/* .myMap {
-  height: 1000px;
-} */
 
 .Infobox .infobox-title {
   font-family: Verdana;

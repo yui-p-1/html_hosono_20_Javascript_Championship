@@ -12,6 +12,28 @@ elm4.textContent = Object.keys(margedata);
 const margedataArr = Object.values(margedata);
 console.log(margedataArr);//Array
 
+// var pickup = Object.keys(margedataArr[4]);
+
+for (let i = 0; i < margedataArr.length; i++) {
+var pickup = Object.keys(margedataArr[i]);
+}
+console.log(pickup[0]);
+
+// var tablelist = new Array(pickup.length);
+// let tablelist = [];
+// console.log(tablelist);
+
+const tablelist = document.getElementById("tablelist");
+const tr = document.createElement("tr");
+tablelist.appendChild(tr);
+// 1行の中を生成
+const objArray = pickup;
+objArray.forEach((kkk) => {
+  const th = document.createElement("th");
+  th.textContent = kkk;
+  tr.appendChild(th);
+}); 
+
 const datatable = document.getElementById("datatable");
 margedataArr.forEach((eachdata) => {  // 配列の中のオブジェクトの数だけ処理を繰り返す
     const tr = document.createElement("tr");  
@@ -22,7 +44,6 @@ margedataArr.forEach((eachdata) => {  // 配列の中のオブジェクトの数
       const td = document.createElement("td");
       td.textContent = arr[1];  // arr[1]はvalueの部分
       tr.appendChild(td);
-
     });
   });
 
