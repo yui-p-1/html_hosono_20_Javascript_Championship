@@ -43,7 +43,6 @@ window.addEventListener('load', () => {
   };
 
 
-// 散布図データ
 import margedata from '../json/plot.json' assert {type: 'json'};
 
 const x_margedata = margedata.map((obj) => obj.x);
@@ -56,7 +55,7 @@ console.log(key_margedata);
 //      {x:1, y:4},{x:2, y:3},{x:3, y:4},{x:4, y:5},{x:5, y:6},{x:6, y:5},{x:7, y:7},{x:8, y:6},{x:9, y:8},{x:10, y:7}
 //   ];
 
-
+// x_データ
 var ctx = document.getElementById("canvas_2").getContext("2d");
 var dataValues = x_margedata;
 var dataLabels = key_margedata;
@@ -94,6 +93,7 @@ var myChart = new Chart(ctx, {
   }
 });
 
+// y_データ
 var ctx = document.getElementById("canvas_3").getContext("2d");
 var dataValues = y_margedata;
 var dataLabels = key_margedata;
@@ -131,10 +131,6 @@ var myChart = new Chart(ctx, {
   }
 });
 
-
-
-
-  
   // 回帰直線の傾きと切片を求める
   var sx = 0;
   var sy = 0;
