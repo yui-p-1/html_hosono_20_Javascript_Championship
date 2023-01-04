@@ -1,29 +1,49 @@
-// window.addEventListener('load', () => {
-//   const f = document.getElementById('file_7');
-//   f.addEventListener('change', evt => {
-//     let input = evt.target;
-//     if (input.files.length == 0) {
-//       console.log('No file selected');
-//       return;
-//     }
-//     const file = input.files[0];
-//     const reader = new FileReader();
+window.addEventListener('load', () => {
+  const f = document.getElementById('file_7');
+  f.addEventListener('change', evt => {
+    let input = evt.target;
+    if (input.files.length == 0) {
+      console.log('No file selected');
+      return;
+    }
+    const file = input.files[0];
+    const reader = new FileReader();
 
-//     reader.onload = () => {
-//       const pre = document.getElementById('result_7');
-//       pre.innerHTML = reader.result;
+    reader.onload = () => {
+      const pre = document.getElementById('result_7');
+      pre.innerHTML = reader.result;
 
-//       const margedata = JSON.parse(reader.result) ;
-//       console.log(margedata);
+      const margedata = JSON.parse(reader.result) ;
+      console.log(margedata);
 
-//     };
+    };
    
-//     reader.readAsText(file);
-//     });
+    reader.readAsText(file);
+    });
     
-//     });
- 
-//   let ttt = document.getElementById('result_7');
+    });
+
+  // // チャレンジ
+  // var ttt = document.getElementById('result_7'); //Object
+  // console.log(ttt);
+  // // チャレンジ終了
+
+   
+   let pdata = document.getElementById('plot_data');
+  //  let nameText = document.getElementById('nameText');
+   pdata.value = '';
+  //  let msg = document.getElementById('msg');
+   
+   let checkButton = document.getElementById('data_Button');
+   checkButton.addEventListener('click', buttonClick);
+  
+   function buttonClick(){
+    const pdata_r1 = pdata.value;//string
+    const pdata_r2 = JSON.parse(pdata_r1)
+    console.log(pdata_r2);
+
+   };
+
 
 // 散布図データ
 import margedata from '../json/plot.json' assert {type: 'json'};
@@ -106,9 +126,6 @@ import margedata from '../json/plot.json' assert {type: 'json'};
     ],
   };
 
-
-
-
   // チャレンジ
   var options = {
     responsive: true,
@@ -147,8 +164,6 @@ import margedata from '../json/plot.json' assert {type: 'json'};
          onClick: function(){ return false; },
     },
 };
-
-
 
 
 

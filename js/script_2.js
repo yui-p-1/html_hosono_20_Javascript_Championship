@@ -35,11 +35,11 @@ nameText.value = '';
 let msg = document.getElementById('msg');
 
 let checkButton = document.getElementById('checkButton');
-checkButton.addEventListener('click', butotnClick);
+checkButton.addEventListener('click', buttonClick);
 
 
 let RRR
-function butotnClick(){
+function buttonClick(){
     msg.innerText = '紐づけKeyは' + nameText.value + 'です';
     
     const key = nameText.value
