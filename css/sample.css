@@ -49,6 +49,7 @@ body {
 
 .box {
   width: 50%;
+  /* display: block; */
 }
 
 .result_1 {

@@ -27,12 +27,9 @@ window.addEventListener('load', () => {
   // var ttt = document.getElementById('result_7'); //Object
   // console.log(ttt);
   // // チャレンジ終了
-
    
    let pdata = document.getElementById('plot_data');
-  //  let nameText = document.getElementById('nameText');
    pdata.value = '';
-  //  let msg = document.getElementById('msg');
    
    let checkButton = document.getElementById('data_Button');
    checkButton.addEventListener('click', buttonClick);
@@ -42,16 +39,101 @@ window.addEventListener('load', () => {
     const pdata_r2 = JSON.parse(pdata_r1)
     console.log(pdata_r2);
 
-   };
+    var margedata = pdata_r2;
+  };
 
 
 // 散布図データ
 import margedata from '../json/plot.json' assert {type: 'json'};
 
+const x_margedata = margedata.map((obj) => obj.x);
+const y_margedata = margedata.map((obj) => obj.y);
+const key_margedata =  Object.keys(margedata);
+console.log(key_margedata);
+
+//確認用
 // const margedata = [
 //      {x:1, y:4},{x:2, y:3},{x:3, y:4},{x:4, y:5},{x:5, y:6},{x:6, y:5},{x:7, y:7},{x:8, y:6},{x:9, y:8},{x:10, y:7}
 //   ];
-  
+
+
+var ctx = document.getElementById("canvas_2").getContext("2d");
+var dataValues = x_margedata;
+var dataLabels = key_margedata;
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: dataLabels,
+    datasets: [{
+      label: 'x_data',
+      data: dataValues,
+      backgroundColor: '#000080',
+    }]
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        display: false,
+        barPercentage: 1.3,
+        ticks: {
+            max: 3,
+        }
+     }, {
+        display: true,
+        ticks: {
+            autoSkip: false,
+            max: 4,
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          beginAtZero:true
+        }
+      }]
+    }
+  }
+});
+
+var ctx = document.getElementById("canvas_3").getContext("2d");
+var dataValues = y_margedata;
+var dataLabels = key_margedata;
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: dataLabels,
+    datasets: [{
+      label: 'y_data',
+      data: dataValues,
+      backgroundColor: 'rgba(255, 99, 132, 1)',
+    }]
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        display: false,
+        barPercentage: 1.3,
+        ticks: {
+            max: 3,
+        }
+     }, {
+        display: true,
+        ticks: {
+            autoSkip: false,
+            max: 4,
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          beginAtZero:true
+        }
+      }]
+    }
+  }
+});
+
+
+
+
   
   // 回帰直線の傾きと切片を求める
   var sx = 0;
@@ -63,7 +145,7 @@ import margedata from '../json/plot.json' assert {type: 'json'};
   var alpha;
   var beta;
   var n;
-  
+
   margedata.forEach(function(val) {
     sx += val.x;
     sy += val.y;
@@ -71,7 +153,7 @@ import margedata from '../json/plot.json' assert {type: 'json'};
     sxsq += Math.pow(val.x,2);
   });
   console.log(margedata);
-  
+
   n = margedata.length;
   xmean = sx/n;
   ymean = sy/n;
@@ -79,14 +161,13 @@ import margedata from '../json/plot.json' assert {type: 'json'};
   alpha = ymean - (beta * xmean); // 切片
 
   // console.log(xmean);
-  
+
   
   // 回帰式より、回帰直線描画用データを作成
   var regressionLinePlot = [];
   margedata.forEach(function(val) {
     regressionLinePlot.push({'x': val.x, 'y': alpha + beta*val.x});
   });
-  
   
   // 散布図と回帰直線を描画
   window.onload = function() {
@@ -97,7 +178,6 @@ import margedata from '../json/plot.json' assert {type: 'json'};
       options: options
     });
   };
-  
   
   // 描画データ
   var plotData = {
@@ -125,6 +205,8 @@ import margedata from '../json/plot.json' assert {type: 'json'};
       }
     ],
   };
+
+  console.log(margedata);
 
   // チャレンジ
   var options = {
@@ -164,8 +246,6 @@ import margedata from '../json/plot.json' assert {type: 'json'};
          onClick: function(){ return false; },
     },
 };
-
-
 
 // 出典:Chart.jsで回帰直線を描画
 // https://qiita.com/saka212/items/f51282765b289c0f0d46
