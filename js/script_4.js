@@ -1,40 +1,36 @@
-window.addEventListener('load', () => {
-  const f = document.getElementById('file_7');
-  f.addEventListener('change', evt => {
-    let input = evt.target;
-    if (input.files.length == 0) {
-      console.log('No file selected');
-      return;
-    }
-    const file = input.files[0];
-    const reader = new FileReader();
+// window.addEventListener('load', () => {
+//   const f = document.getElementById('file_7');
+//   f.addEventListener('change', evt => {
+//     let input = evt.target;
+//     if (input.files.length == 0) {
+//       console.log('No file selected');
+//       return;
+//     }
+//     const file = input.files[0];
+//     const reader = new FileReader();
 
-    reader.onload = () => {
-      const pre = document.getElementById('result_7');
-      pre.innerHTML = reader.result;
+//     reader.onload = () => {
+//       const pre = document.getElementById('result_7');
+//       pre.innerHTML = reader.result;
 
-      var mmmdata = JSON.parse(reader.result) ;
-      console.log(mmmdata);
+//       const margedata = JSON.parse(reader.result) ;
+//       console.log(margedata);
 
-    };
+//     };
    
-    reader.readAsText(file);
-    });
+//     reader.readAsText(file);
+//     });
     
-  });
-
-  var ttt = document.getElementById('result_7').innerHTML;
-  var ddd = Array.from(ttt);
-  console.log(ddd);
-
-
+//     });
+ 
+//   let ttt = document.getElementById('result_7');
 
 // 散布図データ
-// import margedata from '../json/plot.json' assert {type: 'json'};
+import margedata from '../json/plot.json' assert {type: 'json'};
 
-const margedata = [
-     {x:1, y:4},{x:2, y:3},{x:3, y:4},{x:4, y:5},{x:5, y:6},{x:6, y:5},{x:7, y:7},{x:8, y:6},{x:9, y:8},{x:10, y:7}
-  ];
+// const margedata = [
+//      {x:1, y:4},{x:2, y:3},{x:3, y:4},{x:4, y:5},{x:5, y:6},{x:6, y:5},{x:7, y:7},{x:8, y:6},{x:9, y:8},{x:10, y:7}
+//   ];
   
   
   // 回帰直線の傾きと切片を求める
@@ -54,8 +50,7 @@ const margedata = [
     sxy += val.x * val.y;
     sxsq += Math.pow(val.x,2);
   });
-
-  // console.log(margedata);
+  console.log(margedata);
   
   n = margedata.length;
   xmean = sx/n;
@@ -111,6 +106,9 @@ const margedata = [
     ],
   };
 
+
+
+
   // チャレンジ
   var options = {
     responsive: true,
@@ -149,7 +147,6 @@ const margedata = [
          onClick: function(){ return false; },
     },
 };
-
 
 
 

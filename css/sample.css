@@ -96,6 +96,15 @@ body {
   overflow-y: scroll;  /* スクロールバーを表示(※) */
 }
 
+.result_10 {
+  font-size: 30px;
+  text-align: left;
+  display: block;
+  width: 900px;
+  height: 600px;
+  overflow-y: scroll;  /* スクロールバーを表示(※) */
+}
+
 /* .result_5 {
   font-size: 30px;
   text-align: left;

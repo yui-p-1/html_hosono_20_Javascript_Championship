@@ -1,9 +1,9 @@
 import margedata from '../json/marge.json' assert {type: 'json'};
 console.log(margedata);//Object
 
-let elm4 = document.getElementsByClassName("result_4")[0];
-// JSON 文字列に変換して表示
-elm4.textContent = Object.keys(margedata);
+// let elm4 = document.getElementsByClassName("result_4")[0];
+// // JSON 文字列に変換して表示
+// elm4.textContent = Object.keys(margedata);
 
 // console.log(margedata["JP"]); // これは使える！
 
@@ -16,6 +16,7 @@ for (let i = 0; i < margedataArr.length; i++) {
 var pickup = Object.keys(margedataArr[i]);
 };
 
+
 const tablelist = document.getElementById("tablelist");
 const tr = document.createElement("tr");
 tablelist.appendChild(tr);
@@ -26,6 +27,7 @@ objArray.forEach((kkk) => {
   th.textContent = kkk;
   tr.appendChild(th);
 }); 
+
 
 const datatable = document.getElementById("datatable");
 margedataArr.forEach((eachdata) => {  // 配列の中のオブジェクトの数だけ処理を繰り返す

@@ -113,7 +113,6 @@ const firebaseConfig = {
     var elem = document.getElementById('result_1');
     console.log(elem);
     var html = elem.innerHTML;
-    console.log(html);
     html += '<h3>' + name + '</h3>';
     html += '<pre>' + content + '</pre>';
     elem.innerHTML = html;

@@ -28,7 +28,6 @@ import data_2 from '../json/data_2.json' assert {type: 'json'};
 
 // ここで手動操作が必要。改善したい。
 // 改善点１："Sheet1": [ と ] を取り除かなければいけない。data_1、data_2の両方
-// Ctrl+Shift+Pでコマンドパレットを開き、両方、Transform to UpperCaseで大文字に変換する
 
 // 紐づけKey
 let nameText = document.getElementById('nameText');
@@ -77,7 +76,9 @@ function butotnClick(){
         return result;
     }
     
-    var RRR = mergeDeeply(a, b);
+    var RRR = mergeDeeply(a, b); //Object
+
+    console.log(RRR);
         
     // 表示用要素取得
     let elm = document.getElementsByClassName("result_3")[0];
@@ -85,8 +86,41 @@ function butotnClick(){
     // JSON 文字列に変換して表示
     elm.textContent = JSON.stringify(RRR);
 
-    console.log("Result=");
-    console.log(RRR);
+    let elm4 = document.getElementsByClassName("result_4")[0];
+    
+    elm4.textContent = Object.keys(RRR);
+
+    var elm4_r1 = Object.keys(RRR);
+    var elm4_r1 = elm4.textContent;
+    var elm4_r2 = elm4_r1.replace(/,/g, "<br>");
+    var elm4_r3 = '<p>' + elm4_r2 + '</p>';
+
+    var textbox_element = document.getElementById('result_10');
+    var div = document.createElement('div');
+    div.id = 'result_10';
+    div.innerHTML = elm4_r3; //html要素に変換
+    console.log(div);
+
+    textbox_element.appendChild(div);
+
+
+
+// // 予備：Keyリスト表示
+//     const keyList = document.getElementById("keyList");
+//     console.log(keyList);
+
+//     const td = document.createElement("td");
+//     keyList.appendChild(td);
+//     // 1行の中を生成
+//     const objArray = Object.keys(RRR);
+//     objArray.forEach((kkk) => {
+//       const tr = document.createElement("tr");
+//       tr.textContent = kkk;
+//       td.appendChild(tr);
+//     }); 
+// // 予備：Keyリスト表示
+
+
 
     // クリックでFireBaseに保存
     const data_json_3 = JSON.stringify(RRR); //Json文字列に
@@ -104,7 +138,9 @@ function butotnClick(){
     });
     
     return RRR
-};   
+};
+
+
 
 // console.log(RRR);
 // functionの外でResultを使いたい．．．．
