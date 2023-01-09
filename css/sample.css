@@ -1,0 +1,141 @@
+body {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.tab-area {
+    display: flex;
+    justify-content: space-around;
+    background-color: #222e3e;
+    cursor: pointer;
+}
+ 
+.tab {
+      width: 300px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      color: white;
+      border-right: 1px solid #50637b;
+      border-left: 1px solid #222e3e;
+    }
+    
+    .tab.active {
+      background-color: #ccc;
+      color: #222e3e;
+      border: none;
+    }
+
+    .content {
+      display: none;
+    }
+    .content.show {
+      margin-top: 50px;
+      display: flex;
+      width: 1800px;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+.container {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+}    
+
+.box {
+  width: 50%;
+  /* display: block; */
+}
+
+.result_1 {
+    font-size: 30px;
+    text-align: left;
+    display: block;
+    width: 900px;
+    height: 500px;
+    overflow-y: scroll;  /* スクロールバーを表示(※) */
+}
+
+.result_2 {
+  font-size: 30px;
+  text-align: left;
+  display: block;
+  width: 900px;
+  height: 500px;
+  overflow-y: scroll;  /* スクロールバーを表示(※) */
+}
+
+.result_3 {
+  font-size: 30px;
+  text-align: left;
+  display: block;
+  width: 900px;
+  height: 600px;
+  overflow-y: scroll;  /* スクロールバーを表示(※) */
+}
+
+.result_4 {
+  font-size: 30px;
+  text-align: left;
+  display: block;
+  width: 900px;
+  height: 600px;
+  overflow-y: scroll;  /* スクロールバーを表示(※) */
+}
+
+.result_7 {
+  font-size: 30px;
+  text-align: left;
+  display: block;
+  width: 900px;
+  height: 600px;
+  overflow-y: scroll;  /* スクロールバーを表示(※) */
+}
+
+.result_10 {
+  font-size: 30px;
+  text-align: left;
+  display: block;
+  width: 900px;
+  height: 600px;
+  overflow-y: scroll;  /* スクロールバーを表示(※) */
+}
+
+/* .result_5 {
+  font-size: 30px;
+  text-align: left;
+  display: block;
+  width: 1800px;
+  height: 600px;
+  overflow-y: scroll;
+}; */
+
+.dl-xlsx {
+  display: block;
+  align:center;
+  justify-content: center;
+}
+
+.output {
+  height: 200px;
+}
+
+
+.Infobox .infobox-title {
+  font-family: Verdana;
+  font-size: 10pt;
+  line-height: 1.1;
+  margin-right: 20px;
+  font-weight: bold;
+  padding: 10px;
+  color: #333;
+}
+
+
+
+
